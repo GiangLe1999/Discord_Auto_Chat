@@ -33,6 +33,7 @@ def init_driver(account):
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-extensions")
+    options.add_argument("--start-maximized")  # Mở trình duyệt ở chế độ tối đa
     options.add_argument(f"--remote-debugging-port={account['debug_port']}")  # Cổng Debug riêng
 
     # Sử dụng webdriver-manager để tự động tải ChromeDriver
