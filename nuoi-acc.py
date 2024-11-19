@@ -35,6 +35,9 @@ def init_driver(account):
     options.add_argument("--disable-extensions")
     options.add_argument(f"--remote-debugging-port={account['debug_port']}")  # Cổng Debug riêng
     options.add_argument("--start-maximized")  # Mở trình duyệt ở chế độ tối đa
+    # Có thể chạy headless, nhưng muốn reset để có thể mở GUI thì cần xóa hết Chrome session
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu") # Tắt GPU (tăng hiệu năng khi chạy headless)
 
     # Sử dụng webdriver-manager để tự động tải ChromeDriver
     service = Service(ChromeDriverManager().install())
