@@ -12,16 +12,16 @@ from conversation import conversation_script_1
 # Cấu hình tài khoản
 accounts = {
     "A": {
-        "name": "Hải Bình Ngu Ngốc",
-        "chrome_path": "C:\\Others\\Tele Accounts\\84826519744\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Tele Accounts\\84826519744\\GoogleChromePortable\\Data\\profile\\Default",
-        "debug_port": 9222  # Cổng Remote Debugging riêng
+        "name": "Bình Minh Lên Rồi",
+        "chrome_path": "C:\\Others\\Tele Accounts\\84925599903\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Tele Accounts\\84925599903\\GoogleChromePortable\\Data\\profile\\Default",
+        "debug_port": 9224  # Cổng Remote Debugging riêng
     },
     "B": {
-        "name": "Diễm Hằng Xinh Đẹp",
-        "chrome_path": "C:\\Others\\Tele Accounts\\84929895980\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Tele Accounts\\84929895980\\GoogleChromePortable\\Data\\profile\\Default",
-        "debug_port": 9223  # Cổng Remote Debugging riêng
+        "name": "Đình Diệu Diệu Kỳ",
+        "chrome_path": "C:\\Others\\Tele Accounts\\84567845408\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Tele Accounts\\84567845408\\GoogleChromePortable\\Data\\profile\\Default",
+        "debug_port": 9225  # Cổng Remote Debugging riêng
     }
 }
 
@@ -97,7 +97,7 @@ def main():
     try:
         # Mở Telegram Web
         for driver in drivers.values():
-            driver.get("https://web.telegram.org/k/#@deagentai")
+            driver.get("https://web.telegram.org/k/#-2043049770")
         time.sleep(5)
 
         # Duyệt qua kịch bản hội thoại
