@@ -34,6 +34,9 @@ def init_driver(account):
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-extensions")
     options.add_argument(f"--remote-debugging-port={account['debug_port']}")  # Cổng Debug riêng
+    options.add_argument("--headless")
+    options.add_argument("--start-maximized")  # Mở trình duyệt ở chế độ tối đa
+    options.add_argument("--disable-gpu") # Tắt GPU (tăng hiệu năng khi chạy headless)
 
     # Sử dụng webdriver-manager để tự động tải ChromeDriver
     service = Service(ChromeDriverManager().install())
@@ -65,10 +68,21 @@ def send_message(driver,  message):
         print(f"Lỗi khi gửi tin nhắn: {e}")
 
 
+def scroll_to_bottom(driver):
+    try:
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(2)  # Chờ một chút để nội dung tải đầy đủ
+        print("Đã cuộn xuống cuối màn hình.")
+    except Exception as e:
+        print(f"Lỗi khi cuộn màn hình: {e}")
+
 
 # Hàm chờ và nhận tin nhắn từ nhóm
 def wait_for_new_message(driver, expected_message):
     try:
+        # Cuộn màn hình trước khi tìm kiếm
+        scroll_to_bottom(driver)
+
         # Lấy danh sách tất cả các thẻ <span> chứa tin nhắn trong nhóm
         messages = WebDriverWait(driver, 10).until(
             lambda d: d.find_elements(By.XPATH, '//span[@class="translatable-message"]')

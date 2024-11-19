@@ -64,11 +64,20 @@ def send_message(driver,  message):
     except Exception as e:
         print(f"Lỗi khi gửi tin nhắn: {e}")
 
-
+def scroll_to_bottom(driver):
+    try:
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(2)  # Chờ một chút để nội dung tải đầy đủ
+        print("Đã cuộn xuống cuối màn hình.")
+    except Exception as e:
+        print(f"Lỗi khi cuộn màn hình: {e}")
 
 # Hàm chờ và nhận tin nhắn từ nhóm
 def wait_for_new_message(driver, expected_message):
     try:
+        # Cuộn màn hình trước khi tìm kiếm
+        scroll_to_bottom(driver)
+
         # Lấy danh sách tất cả các thẻ <span> chứa tin nhắn trong nhóm
         messages = WebDriverWait(driver, 10).until(
             lambda d: d.find_elements(By.XPATH, '//span[@class="translatable-message"]')
