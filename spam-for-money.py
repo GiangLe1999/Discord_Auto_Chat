@@ -11,13 +11,13 @@ from conversation import conversation_script_1
 
 # Cấu hình tài khoản
 accounts = {
-    "A": {
+    "B": {
         "name": "Hải Bình Ngu Ngốc",
         "chrome_path": "C:\\Others\\Tele Accounts\\84826519744\\GoogleChromePortable\\GoogleChromePortable.exe",
         "user_data_dir": "C:\\Others\\Tele Accounts\\84826519744\\GoogleChromePortable\\Data\\profile\\Default",
         "debug_port": 9222  # Cổng Remote Debugging riêng
     },
-    "B": {
+    "A": {
         "name": "Diễm Hằng Xinh Đẹp",
         "chrome_path": "C:\\Others\\Tele Accounts\\84929895980\\GoogleChromePortable\\GoogleChromePortable.exe",
         "user_data_dir": "C:\\Others\\Tele Accounts\\84929895980\\GoogleChromePortable\\Data\\profile\\Default",
@@ -53,7 +53,7 @@ def send_message(driver,  message):
         )
 
          # Chờ thời gian ngẫu nhiên từ 30 đến 60 giây
-        wait_time = random.randint(10, 20)
+        wait_time = random.randint(10, 15)
         print(f"Chờ {wait_time} giây trước khi gửi tin nhắn...")
         time.sleep(wait_time)
 
@@ -65,19 +65,19 @@ def send_message(driver,  message):
     except Exception as e:
         print(f"Lỗi khi gửi tin nhắn: {e}")
 
-def scroll_to_bottom(driver):
-    try:
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(2)  # Chờ một chút để nội dung tải đầy đủ
-        print("Đã cuộn xuống cuối màn hình.")
-    except Exception as e:
-        print(f"Lỗi khi cuộn màn hình: {e}")
+# def scroll_to_bottom(driver):
+#     try:
+#         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+#         time.sleep(2)  # Chờ một chút để nội dung tải đầy đủ
+#         print("Đã cuộn xuống cuối màn hình.")
+#     except Exception as e:
+#         print(f"Lỗi khi cuộn màn hình: {e}")
 
 # Hàm chờ và nhận tin nhắn từ nhóm
 def wait_for_new_message(driver, expected_message):
     try:
-        # Cuộn màn hình trước khi tìm kiếm
-        scroll_to_bottom(driver)
+        # # Cuộn màn hình trước khi tìm kiếm
+        # scroll_to_bottom(driver)
 
         # Lấy danh sách tất cả các thẻ <span> chứa tin nhắn trong nhóm
         messages = WebDriverWait(driver, 10).until(

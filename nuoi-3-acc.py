@@ -11,29 +11,23 @@ from conversation import conversation_script_1
 
 # Cấu hình tài khoản
 accounts = {
-    # "B": {
-    #     "name": "Bình Minh Lên Rồi",
-    #     "chrome_path": "C:\\Others\\Tele Accounts\\84925599903\\GoogleChromePortable\\GoogleChromePortable.exe",
-    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84925599903\\GoogleChromePortable\\Data\\profile\\Default",
-    #     "debug_port": 9224  # Cổng Remote Debugging riêng
-    # },
-    # "A": {
-    #     "name": "Đình Diệu Diệu Kỳ",
-    #     "chrome_path": "C:\\Others\\Tele Accounts\\84567845408\\GoogleChromePortable\\GoogleChromePortable.exe",
-    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84567845408\\GoogleChromePortable\\Data\\profile\\Default",
-    #     "debug_port": 9225  # Cổng Remote Debugging riêng
-    # },
-    "B": {
-        "name": "B",
-        "chrome_path": "C:\\Others\\Tele Accounts\\84914418511\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Tele Accounts\\84914418511\\GoogleChromePortable\\Data\\profile\\Default",
-        "debug_port": 9224  # Cổng Remote Debugging riêng
-    },
     "A": {
         "name": "A",
-        "chrome_path": "C:\\Others\\Tele Accounts\\84918134941\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Tele Accounts\\84918134941\\GoogleChromePortable\\Data\\profile\\Default",
+        "chrome_path": "C:\\Others\\Tele Accounts\\84912161609\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Tele Accounts\\84912161609\\GoogleChromePortable\\Data\\profile\\Default",
+        "debug_port": 9224  # Cổng Remote Debugging riêng
+    },
+    "B": {
+        "name": "B",
+        "chrome_path": "C:\\Others\\Tele Accounts\\84816828974\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Tele Accounts\\84816828974\\GoogleChromePortable\\Data\\profile\\Default",
         "debug_port": 9225  # Cổng Remote Debugging riêng
+    },
+    "C": {
+        "name": "C",
+        "chrome_path": "C:\\Others\\Tele Accounts\\84852158289\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Tele Accounts\\84852158289\\GoogleChromePortable\\Data\\profile\\Default",
+        "debug_port": 9226  # Cổng Remote Debugging riêng
     }
 }
 
