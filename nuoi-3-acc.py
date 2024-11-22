@@ -7,27 +7,39 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import random
-from conversation import conversation_script_1
+from conversation import conversation_script_2
 
 # Cấu hình tài khoản
 accounts = {
+    # "A": {
+    #     "name": "1",
+    #     "chrome_path": "C:\\Others\\Tele Accounts\\84912161609\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84912161609\\GoogleChromePortable\\Data\\profile\\Default",
+    #     "debug_port": 9224  # Cổng Remote Debugging riêng
+    # },
+    # "B": {
+    #     "name": "2",
+    #     "chrome_path": "C:\\Others\\Tele Accounts\\84816828974\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84816828974\\GoogleChromePortable\\Data\\profile\\Default",
+    #     "debug_port": 9225  # Cổng Remote Debugging riêng
+    # },
     "A": {
-        "name": "A",
-        "chrome_path": "C:\\Others\\Tele Accounts\\84912161609\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Tele Accounts\\84912161609\\GoogleChromePortable\\Data\\profile\\Default",
-        "debug_port": 9224  # Cổng Remote Debugging riêng
-    },
-    "B": {
-        "name": "B",
-        "chrome_path": "C:\\Others\\Tele Accounts\\84816828974\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Tele Accounts\\84816828974\\GoogleChromePortable\\Data\\profile\\Default",
-        "debug_port": 9225  # Cổng Remote Debugging riêng
-    },
-    "C": {
-        "name": "C",
+        "name": "3",
         "chrome_path": "C:\\Others\\Tele Accounts\\84852158289\\GoogleChromePortable\\GoogleChromePortable.exe",
         "user_data_dir": "C:\\Others\\Tele Accounts\\84852158289\\GoogleChromePortable\\Data\\profile\\Default",
         "debug_port": 9226  # Cổng Remote Debugging riêng
+    },
+    "C": {
+        "name": "4",
+        "chrome_path": "C:\\Others\\Tele Accounts\\84914418511\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Tele Accounts\\84914418511\\GoogleChromePortable\\Data\\profile\\Default",
+        "debug_port": 9224  # Cổng Remote Debugging riêng
+    },
+    "B": {
+        "name": "5",
+        "chrome_path": "C:\\Others\\Tele Accounts\\84918134941\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Tele Accounts\\84918134941\\GoogleChromePortable\\Data\\profile\\Default",
+        "debug_port": 9225  # Cổng Remote Debugging riêng
     }
 }
 
@@ -62,7 +74,7 @@ def send_message(driver,  message):
         )
 
          # Chờ thời gian ngẫu nhiên từ 30 đến 60 giây
-        wait_time = random.randint(10, 20)
+        wait_time = random.randint(8, 15)
         print(f"Chờ {wait_time} giây trước khi gửi tin nhắn...")
         time.sleep(wait_time)
 
@@ -122,7 +134,7 @@ def main():
         time.sleep(5)
 
         # Duyệt qua kịch bản hội thoại
-        for step in conversation_script_1:
+        for step in conversation_script_2:
             sender = step["sender"]
             receiver = step["response"]
 
