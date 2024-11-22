@@ -2,12 +2,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import random
 from conversation import conversation_script_1
+
+chrome_driver_path = r"C:\Workspace\Python\chromedriver.exe"
 
 # Cấu hình tài khoản
 accounts = {
@@ -52,7 +53,7 @@ def init_driver(account):
     options.add_argument("--disable-gpu") # Tắt GPU (tăng hiệu năng khi chạy headless)
 
     # Sử dụng webdriver-manager để tự động tải ChromeDriver
-    service = Service(ChromeDriverManager().install())
+    service = Service(chrome_driver_path)
     return webdriver.Chrome(service=service, options=options)
 
 def send_message(driver,  message):

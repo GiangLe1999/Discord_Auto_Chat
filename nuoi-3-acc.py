@@ -2,45 +2,71 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import random
 from conversation import conversation_script_2
 
+chrome_driver_path = r"C:\Workspace\Python\chromedriver.exe"
+
+
 # Cấu hình tài khoản
 accounts = {
     # "A": {
     #     "name": "1",
-    #     "chrome_path": "C:\\Others\\Tele Accounts\\84912161609\\GoogleChromePortable\\GoogleChromePortable.exe",
-    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84912161609\\GoogleChromePortable\\Data\\profile\\Default",
-    #     "debug_port": 9224  # Cổng Remote Debugging riêng
+    #     "chrome_path": "C:\\Others\\Tele Accounts\\84929895980\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84929895980\\GoogleChromePortable\\Data\\profile\\Default",
+    #     "debug_port": 9220  # Cổng Remote Debugging riêng
     # },
     # "B": {
     #     "name": "2",
-    #     "chrome_path": "C:\\Others\\Tele Accounts\\84816828974\\GoogleChromePortable\\GoogleChromePortable.exe",
-    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84816828974\\GoogleChromePortable\\Data\\profile\\Default",
-    #     "debug_port": 9225  # Cổng Remote Debugging riêng
+    #     "chrome_path": "C:\\Others\\Tele Accounts\\84826519744\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84826519744\\GoogleChromePortable\\Data\\profile\\Default",
+    #     "debug_port": 9221  # Cổng Remote Debugging riêng
+    # },
+    # "C": {
+    #     "name": "3",
+    #     "chrome_path": "C:\\Others\\Tele Accounts\\84925599903\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84925599903\\GoogleChromePortable\\Data\\profile\\Default",
+    #     "debug_port": 9222  # Cổng Remote Debugging riêng
     # },
     "A": {
-        "name": "3",
-        "chrome_path": "C:\\Others\\Tele Accounts\\84852158289\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Tele Accounts\\84852158289\\GoogleChromePortable\\Data\\profile\\Default",
-        "debug_port": 9226  # Cổng Remote Debugging riêng
-    },
-    "C": {
         "name": "4",
+        "chrome_path": "C:\\Others\\Tele Accounts\\84567845408\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Tele Accounts\\84567845408\\GoogleChromePortable\\Data\\profile\\Default",
+        "debug_port": 9223  # Cổng Remote Debugging riêng
+    },
+    "B": {
+        "name": "5",
         "chrome_path": "C:\\Others\\Tele Accounts\\84914418511\\GoogleChromePortable\\GoogleChromePortable.exe",
         "user_data_dir": "C:\\Others\\Tele Accounts\\84914418511\\GoogleChromePortable\\Data\\profile\\Default",
         "debug_port": 9224  # Cổng Remote Debugging riêng
     },
-    "B": {
-        "name": "5",
+    "C": {
+        "name": "6",
         "chrome_path": "C:\\Others\\Tele Accounts\\84918134941\\GoogleChromePortable\\GoogleChromePortable.exe",
         "user_data_dir": "C:\\Others\\Tele Accounts\\84918134941\\GoogleChromePortable\\Data\\profile\\Default",
         "debug_port": 9225  # Cổng Remote Debugging riêng
-    }
+    },
+    # "A": {
+    #     "name": "7",
+    #     "chrome_path": "C:\\Others\\Tele Accounts\\84816828974\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84816828974\\GoogleChromePortable\\Data\\profile\\Default",
+    #     "debug_port": 9226  # Cổng Remote Debugging riêng
+    # },
+    # "B": {
+    #     "name": "8",
+    #     "chrome_path": "C:\\Others\\Tele Accounts\\84852158289\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84852158289\\GoogleChromePortable\\Data\\profile\\Default",
+    #     "debug_port": 9227  # Cổng Remote Debugging riêng
+    # },
+    # "C": {
+    #     "name": "9",
+    #     "chrome_path": "C:\\Others\\Tele Accounts\\84912161609\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84912161609\\GoogleChromePortable\\Data\\profile\\Default",
+    #     "debug_port": 9228  # Cổng Remote Debugging riêng
+    # }
 }
 
 # Hàm khởi tạo Selenium
@@ -58,7 +84,7 @@ def init_driver(account):
     options.add_argument("--disable-gpu") # Tắt GPU (tăng hiệu năng khi chạy headless)
 
     # Sử dụng webdriver-manager để tự động tải ChromeDriver
-    service = Service(ChromeDriverManager().install())
+    service = Service(chrome_driver_path)
     return webdriver.Chrome(service=service, options=options)
 
 def send_message(driver,  message):
