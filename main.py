@@ -46,27 +46,39 @@ def init_driver(account):
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-extensions")
-    options.add_argument("--start-maximized")  # Mở trình duyệt ở chế độ tối đa
     options.add_argument(f"--remote-debugging-port={account['debug_port']}")  # Cổng Debug riêng
+
+    # Thêm các options để giảm tải tài nguyên
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--disablce-software-rasterizer")
+    options.add_argument("--disable-infobars")
+    options.add_argument("--disable-notifications")
+    options.add_argument("--disable-logging")
+    options.add_argument("--disable-default-apps")
+    options.add_argument("--disable-popup-blocking")
+    options.add_argument("--disable-prompt-on-repost")
+    options.add_argument("--disable-sync")
+    options.add_argument("--disable-web-security")
+    options.add_argument("--disable-translate")
+    options.add_argument("--disable-hang-monitor")
+    options.add_argument("--disable-client-side-phishing-detection")
+    options.add_argument("--disable-component-update")
+    options.add_argument("--memory-model=low")
+    options.add_argument("--disable-backing-store-limit")
 
     # Sử dụng webdriver-manager để tự động tải ChromeDriver
     service = Service(chrome_driver_path)
     return webdriver.Chrome(service=service, options=options)
 
-def send_message(driver,  message):
+def send_message(driver, message):
     try:
-        # Chờ cho nhóm chat tải xong
-        # WebDriverWait(driver, 15).until(
-        #     EC.presence_of_element_located((By.XPATH, '//span[contains(@class, "peer-title")]'))
-        # )
-
         # Chờ ô nhập liệu tin nhắn sẵn sàng (chọn div contenteditable thứ 2)
         message_box = WebDriverWait(driver, 15).until(
             EC.element_to_be_clickable((By.XPATH, '(//div[@contenteditable="true"])[2]'))
         )
 
-         # Chờ thời gian ngẫu nhiên từ 30 đến 60 giây
-        wait_time = random.randint(2)
+        wait_time = random.randint(120, 180)
         print(f"Chờ {wait_time} giây trước khi gửi tin nhắn...")
         time.sleep(wait_time)
 
