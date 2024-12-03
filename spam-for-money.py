@@ -8,7 +8,7 @@ import time
 import random
 from conversation import conversation_script_1
 
-chrome_driver_path = r"C:\Workspace\Python\chromedriver.exe"
+chrome_driver_path = r"D:\Workspace\Python\chromedriver.exe"
 
 # Cấu hình tài khoản
 accounts = {
@@ -54,7 +54,7 @@ def send_message(driver,  message):
         )
 
          # Chờ thời gian ngẫu nhiên từ 30 đến 60 giây
-        wait_time = random.randint(10, 15)
+        wait_time = random.randint(5, 15)
         print(f"Chờ {wait_time} giây trước khi gửi tin nhắn...")
         time.sleep(wait_time)
 

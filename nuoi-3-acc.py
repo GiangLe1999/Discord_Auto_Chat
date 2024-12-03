@@ -14,55 +14,55 @@ chrome_driver_path = r"C:\Workspace\Python\chromedriver.exe"
 # Cấu hình tài khoản
 accounts = {
     # "A": {
-    #     "name": "1",
+    #     "name": "Diễm Hằng Xinh Đẹp",
     #     "chrome_path": "C:\\Others\\Tele Accounts\\84929895980\\GoogleChromePortable\\GoogleChromePortable.exe",
     #     "user_data_dir": "C:\\Others\\Tele Accounts\\84929895980\\GoogleChromePortable\\Data\\profile\\Default",
     #     "debug_port": 9220  # Cổng Remote Debugging riêng
     # },
     # "B": {
-    #     "name": "2",
+    #     "name": "Hải Bình Ngu Ngốc",
     #     "chrome_path": "C:\\Others\\Tele Accounts\\84826519744\\GoogleChromePortable\\GoogleChromePortable.exe",
     #     "user_data_dir": "C:\\Others\\Tele Accounts\\84826519744\\GoogleChromePortable\\Data\\profile\\Default",
     #     "debug_port": 9221  # Cổng Remote Debugging riêng
     # },
     # "C": {
-    #     "name": "3",
+    #     "name": "Bình Minh Lên Rồi",
     #     "chrome_path": "C:\\Others\\Tele Accounts\\84925599903\\GoogleChromePortable\\GoogleChromePortable.exe",
     #     "user_data_dir": "C:\\Others\\Tele Accounts\\84925599903\\GoogleChromePortable\\Data\\profile\\Default",
     #     "debug_port": 9222  # Cổng Remote Debugging riêng
     # },
     "A": {
-        "name": "4",
+        "name": "Đình Diệu Diệu Kỳ",
         "chrome_path": "C:\\Others\\Tele Accounts\\84567845408\\GoogleChromePortable\\GoogleChromePortable.exe",
         "user_data_dir": "C:\\Others\\Tele Accounts\\84567845408\\GoogleChromePortable\\Data\\profile\\Default",
         "debug_port": 9223  # Cổng Remote Debugging riêng
     },
     "B": {
-        "name": "5",
+        "name": "Đức Trung Hải",
         "chrome_path": "C:\\Others\\Tele Accounts\\84914418511\\GoogleChromePortable\\GoogleChromePortable.exe",
         "user_data_dir": "C:\\Others\\Tele Accounts\\84914418511\\GoogleChromePortable\\Data\\profile\\Default",
         "debug_port": 9224  # Cổng Remote Debugging riêng
     },
     "C": {
-        "name": "6",
+        "name": "Bá Cường BMT",
         "chrome_path": "C:\\Others\\Tele Accounts\\84918134941\\GoogleChromePortable\\GoogleChromePortable.exe",
         "user_data_dir": "C:\\Others\\Tele Accounts\\84918134941\\GoogleChromePortable\\Data\\profile\\Default",
         "debug_port": 9225  # Cổng Remote Debugging riêng
     },
     # "A": {
-    #     "name": "7",
+    #     "name": "Hải Sơn Thủy Hử",
     #     "chrome_path": "C:\\Others\\Tele Accounts\\84816828974\\GoogleChromePortable\\GoogleChromePortable.exe",
     #     "user_data_dir": "C:\\Others\\Tele Accounts\\84816828974\\GoogleChromePortable\\Data\\profile\\Default",
     #     "debug_port": 9226  # Cổng Remote Debugging riêng
     # },
     # "B": {
-    #     "name": "8",
+    #     "name": "Hồng Mai Đào",
     #     "chrome_path": "C:\\Others\\Tele Accounts\\84852158289\\GoogleChromePortable\\GoogleChromePortable.exe",
     #     "user_data_dir": "C:\\Others\\Tele Accounts\\84852158289\\GoogleChromePortable\\Data\\profile\\Default",
     #     "debug_port": 9227  # Cổng Remote Debugging riêng
     # },
     # "C": {
-    #     "name": "9",
+    #     "name": "Thu Thảo Thảo",
     #     "chrome_path": "C:\\Others\\Tele Accounts\\84912161609\\GoogleChromePortable\\GoogleChromePortable.exe",
     #     "user_data_dir": "C:\\Others\\Tele Accounts\\84912161609\\GoogleChromePortable\\Data\\profile\\Default",
     #     "debug_port": 9228  # Cổng Remote Debugging riêng
