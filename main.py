@@ -8,34 +8,34 @@ import time
 import random
 from conversation import conversation_script_1
 
-chrome_driver_path = r"C:\Workspace\Python\chromedriver.exe"
+chrome_driver_path = r"D:\Workspace\Python\chromedriver.exe"
 
 # Cấu hình tài khoản
 accounts = {
-    # "B": {
-    #     "name": "Bình Minh Lên Rồi",
-    #     "chrome_path": "C:\\Others\\Tele Accounts\\84925599903\\GoogleChromePortable\\GoogleChromePortable.exe",
-    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84925599903\\GoogleChromePortable\\Data\\profile\\Default",
-    #     "debug_port": 9224  # Cổng Remote Debugging riêng
-    # },
-    # "A": {
-    #     "name": "Đình Diệu Diệu Kỳ",
-    #     "chrome_path": "C:\\Others\\Tele Accounts\\84567845408\\GoogleChromePortable\\GoogleChromePortable.exe",
-    #     "user_data_dir": "C:\\Others\\Tele Accounts\\84567845408\\GoogleChromePortable\\Data\\profile\\Default",
-    #     "debug_port": 9225  # Cổng Remote Debugging riêng
-    # },
+    "A": {
+        "name": "Diễm Hằng Xinh Đẹp",
+        "chrome_path": "C:\\Others\\Tele Accounts\\84929895980\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Tele Accounts\\84929895980\\GoogleChromePortable\\Data\\profile\\Default",
+        "debug_port": 9222  # Cổng Remote Debugging riêng
+    },
     "B": {
-        "name": "B",
-        "chrome_path": "C:\\Others\\Tele Accounts\\84914418511\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Tele Accounts\\84914418511\\GoogleChromePortable\\Data\\profile\\Default",
+        "name": "Hải Bình Ngu Ngốc",
+        "chrome_path": "C:\\Others\\Tele Accounts\\84826519744\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Tele Accounts\\84826519744\\GoogleChromePortable\\Data\\profile\\Default",
+        "debug_port": 9223  # Cổng Remote Debugging riêng
+    },
+    "C": {
+        "name": "Bình Minh Lên Rồi",
+        "chrome_path": "C:\\Others\\Tele Accounts\\84925599903\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Tele Accounts\\84925599903\\GoogleChromePortable\\Data\\profile\\Default",
         "debug_port": 9224  # Cổng Remote Debugging riêng
     },
-    "A": {
-        "name": "A",
-        "chrome_path": "C:\\Others\\Tele Accounts\\84918134941\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Tele Accounts\\84918134941\\GoogleChromePortable\\Data\\profile\\Default",
+    "D": {
+        "name": "Đình Diệu Diệu Kỳ",
+        "chrome_path": "C:\\Others\\Tele Accounts\\84567845408\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Tele Accounts\\84567845408\\GoogleChromePortable\\Data\\profile\\Default",
         "debug_port": 9225  # Cổng Remote Debugging riêng
-    }
+    },
 }
 
 # Hàm khởi tạo Selenium
@@ -46,11 +46,8 @@ def init_driver(account):
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-extensions")
-    options.add_argument(f"--remote-debugging-port={account['debug_port']}")  # Cổng Debug riêng
     options.add_argument("--start-maximized")  # Mở trình duyệt ở chế độ tối đa
-    # Có thể chạy headless, nhưng muốn reset để có thể mở GUI thì cần xóa hết Chrome session
-    options.add_argument("--headless")
-    options.add_argument("--disable-gpu") # Tắt GPU (tăng hiệu năng khi chạy headless)
+    options.add_argument(f"--remote-debugging-port={account['debug_port']}")  # Cổng Debug riêng
 
     # Sử dụng webdriver-manager để tự động tải ChromeDriver
     service = Service(chrome_driver_path)
@@ -59,17 +56,17 @@ def init_driver(account):
 def send_message(driver,  message):
     try:
         # Chờ cho nhóm chat tải xong
-        WebDriverWait(driver, 15).until(
-            EC.presence_of_element_located((By.XPATH, '//span[contains(@class, "peer-title")]'))
-        )
+        # WebDriverWait(driver, 15).until(
+        #     EC.presence_of_element_located((By.XPATH, '//span[contains(@class, "peer-title")]'))
+        # )
 
-        # Chờ ô nhập liệu tin nhắn sẵn sàng
+        # Chờ ô nhập liệu tin nhắn sẵn sàng (chọn div contenteditable thứ 2)
         message_box = WebDriverWait(driver, 15).until(
-            EC.element_to_be_clickable((By.XPATH, '//div[@contenteditable="true"]'))
+            EC.element_to_be_clickable((By.XPATH, '(//div[@contenteditable="true"])[2]'))
         )
 
          # Chờ thời gian ngẫu nhiên từ 30 đến 60 giây
-        wait_time = random.randint(10, 20)
+        wait_time = random.randint(2)
         print(f"Chờ {wait_time} giây trước khi gửi tin nhắn...")
         time.sleep(wait_time)
 
@@ -81,32 +78,22 @@ def send_message(driver,  message):
     except Exception as e:
         print(f"Lỗi khi gửi tin nhắn: {e}")
 
-
-def scroll_to_bottom(driver):
-    try:
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(2)  # Chờ một chút để nội dung tải đầy đủ
-        print("Đã cuộn xuống cuối màn hình.")
-    except Exception as e:
-        print(f"Lỗi khi cuộn màn hình: {e}")
-
-
 # Hàm chờ và nhận tin nhắn từ nhóm
 def wait_for_new_message(driver, expected_message):
     try:
-        # Cuộn màn hình trước khi tìm kiếm
-        scroll_to_bottom(driver)
-
-        # Lấy danh sách tất cả các thẻ <span> chứa tin nhắn trong nhóm
-        messages = WebDriverWait(driver, 10).until(
-            lambda d: d.find_elements(By.XPATH, '//span[@class="translatable-message"]')
+        # Lấy tất cả các thẻ <div> có lớp 'markup_f8f345 messageContent_f9f2ca'
+        message_divs = WebDriverWait(driver, 10).until(
+            lambda d: d.find_elements(By.XPATH, '//div[contains(@class, "markup_f8f345") and contains(@class, "messageContent_f9f2ca")]')
         )
 
-        # Duyệt qua từng tin nhắn để kiểm tra nội dung
-        for message in messages:
-            message_text = message.text.strip()  # Lấy nội dung văn bản và loại bỏ khoảng trắng thừa
-            if message_text == expected_message:
-                print(f"Nhận được tin nhắn khớp: {message_text}")
+        # Duyệt qua từng <div> và lấy tất cả các thẻ <span> bên trong
+        for div in message_divs:
+            spans = div.find_elements(By.XPATH, './/span')  # Lấy tất cả các thẻ <span> trong <div>
+            full_message = ''.join([span.text for span in spans]).strip()  # Nối nội dung các thẻ <span> lại thành chuỗi
+
+            # Kiểm tra nội dung tin nhắn
+            if full_message == expected_message:
+                print(f"Nhận được tin nhắn khớp: {full_message}")
                 return True
 
         print("Không tìm thấy tin nhắn khớp.")
@@ -114,7 +101,6 @@ def wait_for_new_message(driver, expected_message):
     except Exception as e:
         print(f"Lỗi khi nhận tin nhắn: {e}")
         return False
-
 
 
 # Hàm chính
@@ -125,7 +111,7 @@ def main():
     try:
         # Mở Telegram Web
         for driver in drivers.values():
-            driver.get("https://web.telegram.org/k/#-2043049770")
+            driver.get("https://discord.com/channels/1310409244058587156/1310409287947784305")
         time.sleep(5)
 
         # Duyệt qua kịch bản hội thoại
